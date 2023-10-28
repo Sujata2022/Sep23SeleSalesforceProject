@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-10-25T14:17:11 PDT" name="TestNG Parameters Suite" finished-at="2023-10-25T14:17:11 PDT" duration-ms="68">
+    <groups>
+    </groups>
+    <test started-at="2023-10-25T14:17:11 PDT" name="Params" finished-at="2023-10-25T14:17:11 PDT" duration-ms="68">
+      <class name="com.tests.testng.ParamsNG">
+        <test-method signature="Diff(int,int)[pri:0, instance:com.tests.testng.ParamsNG@3527942a]" started-at="2023-10-25T14:17:11 PDT" name="Diff" finished-at="2023-10-25T14:17:11 PDT" duration-ms="10" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[5]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Diff -->
+        <test-method signature="Sum(int,int)[pri:0, instance:com.tests.testng.ParamsNG@3527942a]" started-at="2023-10-25T14:17:11 PDT" name="Sum" finished-at="2023-10-25T14:17:11 PDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[5]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Sum -->
+      </class> <!-- com.tests.testng.ParamsNG -->
+    </test> <!-- Params -->
+  </suite> <!-- TestNG Parameters Suite -->
+</testng-results>
