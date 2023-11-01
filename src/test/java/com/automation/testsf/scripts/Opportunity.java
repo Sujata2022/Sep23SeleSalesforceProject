@@ -20,18 +20,14 @@ public class Opportunity extends BaseTestSF{
 }	
 	//view Opportunity
 	public static void viewOpty_16() throws InterruptedException {
-		WebElement allTab= driver.findElement(By.xpath("//img[@class='allTabsArrow']"));
-		clickElement(allTab,"All tab button");
-		Thread.sleep(2000);			
+		allTabs();		
 		WebElement optyTab= driver.findElement(By.xpath("//a[@class='listRelatedObject opportunityBlock title']"));
 		clickElement(optyTab,"opty link");
 		Thread.sleep(2000);
 		}
 	//view Opportunity Pipeline link
 		public static void optyPipeReport_17() throws InterruptedException {
-			WebElement allTab= driver.findElement(By.xpath("//img[@class='allTabsArrow']"));
-			clickElement(allTab,"All tab button");
-			Thread.sleep(2000);			
+			allTabs();		
 			WebElement optyTab= driver.findElement(By.xpath("//a[@class='listRelatedObject opportunityBlock title']"));
 			clickElement(optyTab,"opty link");
 			Thread.sleep(2000);
@@ -42,9 +38,7 @@ public class Opportunity extends BaseTestSF{
 			}
 		//view Stuck Opportunity link
 			public static void viewOptyStuck_18() throws InterruptedException {
-				WebElement allTab= driver.findElement(By.xpath("//img[@class='allTabsArrow']"));
-				clickElement(allTab,"All tab button");
-				Thread.sleep(2000);			
+				allTabs();		
 				WebElement optyTab= driver.findElement(By.xpath("//a[@class='listRelatedObject opportunityBlock title']"));
 				clickElement(optyTab,"opty link");
 				Thread.sleep(2000);

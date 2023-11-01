@@ -8,6 +8,7 @@ import java.util.Set;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -54,13 +55,19 @@ public class BaseTestSF {
 		
 		return driver;		
 	}
-	
+public static void allTabs() throws InterruptedException {
+			
+		WebElement allTab= driver.findElement(By.xpath("//img[@class='allTabsArrow']"));
+		clickElement(allTab,"All tab button");
+		Thread.sleep(2000);	
+	}
+
 	//close browser
 	public void tearDownAfterTestMethod() {
 		closeBrowser();
 		System.out.println("******automation script ended***********");
 	}
-	
+
 	//different type browser launch
 	public static void launchBrowser(String browserName) {
 		switch(browserName) {
@@ -109,7 +116,25 @@ public class BaseTestSF {
 		System.out.println("extracted the text from"+objectName);
 		return data;
 	}
+	//******************Contacts Tab***********************
 	
+	public static void homeContacts() throws InterruptedException {				
+		
+	      WebElement contactHome = driver.findElement(By.xpath("/html/body/div[4]/div[1]/section/div[1]/div[1]/one-appnav/div/one-app-nav-bar/nav/div/one-app-nav-bar-item-root[7]/a"));
+	      JavascriptExecutor executor = (JavascriptExecutor)driver;
+	      executor.executeScript("arguments[0].click();", contactHome);	
+	      Thread.sleep(2000);		
+	}
+	
+	
+	public static WebDriver viewSettings() throws InterruptedException {		
+		
+		WebElement dropDownView= driver.findElement(By.xpath("//button[@class='slds-button slds-button_icon slds-button_icon-more slds-button_icon-border-filled']"));
+		clickElement(dropDownView,"dropdown contacts");
+		Thread.sleep(2000);
+		return driver;
+		}
+  //*******************************************  
 	//Close browser
 	public static void closeBrowser() {
 		driver.close();
@@ -175,5 +200,20 @@ public class BaseTestSF {
 			selectOption.selectByValue(text);
 			System.out.println(objName+ "selected");
 		}
+		//***************
+		//To handle multiple windows
+				
+		/*		final String firstWinHandle;  
+				final String secondWinHandle; 	
+		
+			Set <String>handles = driver.getWindowHandles();
+			firstWinHandle = driver.getWindowHandle();
+			handles.remove(firstWinHandle);
+			String winHandle=handles.iterator().next();
+			if (winHandle!=firstWinHandle){
+			     secondWinHandle=winHandle;
+
+			driver.switchTo().window(secondWinHandle);   //Switch to popup window
+			*/
 
 }

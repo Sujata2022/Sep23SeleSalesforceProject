@@ -13,26 +13,23 @@ public class Leads extends BaseTestSF{
 	public static void main(String[] args) throws InterruptedException {
 		
 			setUpBeforeTestMethod("chrome");
-			loginPage();		
-			//checkLeads_20();
-			
+			loginPage();
+			allTabs(); //BaseTestSF
+			checkLeads_20();
+			//goButtonVerify_22();
 			//todayLeads_23();
 			//createNewLead_24();
 }	
 	//check leads
 	public static void checkLeads_20() throws InterruptedException {
-		WebElement allTab= driver.findElement(By.xpath("//img[@class='allTabsArrow']"));
-		clickElement(allTab,"All tab button");
-		Thread.sleep(2000);			
+		
 		WebElement leadsTab= driver.findElement(By.xpath("//a[@class='listRelatedObject leadBlock title']"));
 		clickElement(leadsTab,"leads button");
 		Thread.sleep(2000);
 
 	}
 	public static void goButtonVerify_22() throws InterruptedException {
-		WebElement allTab= driver.findElement(By.xpath("//img[@class='allTabsArrow']"));
-		clickElement(allTab,"All tab button");
-		Thread.sleep(2000);			
+			
 		WebElement leadsTab= driver.findElement(By.xpath("//a[@class='listRelatedObject leadBlock title']"));
 		clickElement(leadsTab,"leads button");
 		Thread.sleep(2000);
@@ -41,22 +38,15 @@ public class Leads extends BaseTestSF{
 	
 	//view today's leads
 		public static void todayLeads_23() throws InterruptedException {
-			WebElement allTab= driver.findElement(By.xpath("//img[@class='allTabsArrow']"));
-			clickElement(allTab,"All tab button");
-			Thread.sleep(2000);			
-			WebElement leadsTab= driver.findElement(By.xpath("//a[@class='listRelatedObject leadBlock title']"));
-			clickElement(leadsTab,"leads button");
-			Thread.sleep(2000);			
+	
+			goButtonVerify_22();		
 			WebElement viewLeads = driver.findElement(By.xpath("//select[@id='fcf']"));
 			selectByValue(viewLeads,"00BHn00000EEgnK","todays leads");
 			Thread.sleep(2000);
 		}
 		//create new Leads
 		public static void createNewLead_24() throws InterruptedException {
-			
-			WebElement allTab= driver.findElement(By.xpath("//img[@class='allTabsArrow']"));
-			clickElement(allTab,"All tab button");
-			Thread.sleep(2000);			
+
 			WebElement leadsTab= driver.findElement(By.xpath("//a[@class='listRelatedObject leadBlock title']"));
 			clickElement(leadsTab,"leads button");
 			Thread.sleep(2000);					

@@ -20,9 +20,7 @@ public class CreateAccount extends BaseTestSF{
 }	
 	//create New Account
 	public static void createAccount_10() throws InterruptedException {
-		WebElement allTab= driver.findElement(By.xpath("//img[@class='allTabsArrow']"));
-		clickElement(allTab,"All tab button");
-		Thread.sleep(2000);			
+		allTabs();		
 		WebElement accountTab= driver.findElement(By.xpath("//a[@class='listRelatedObject accountBlock title']"));
 		clickElement(accountTab,"account button");
 		Thread.sleep(2000);			
@@ -46,9 +44,7 @@ public class CreateAccount extends BaseTestSF{
 	//create new View
 		public static void createView_11() throws InterruptedException {
 			
-			WebElement allTab= driver.findElement(By.xpath("//img[@class='allTabsArrow']"));
-			clickElement(allTab,"all tab button");
-			Thread.sleep(2000);			
+			allTabs();			
 			WebElement accountTab= driver.findElement(By.xpath("//a[@class='listRelatedObject accountBlock title']"));
 			clickElement(accountTab,"account button");
 			Thread.sleep(2000);			
@@ -66,9 +62,7 @@ public class CreateAccount extends BaseTestSF{
 		//edit View
 		public static void editView_12() throws InterruptedException {
 			
-			WebElement allTab= driver.findElement(By.xpath("//img[@class='allTabsArrow']"));
-			clickElement(allTab,"all tab button");
-			Thread.sleep(2000);			
+			allTabs();			
 			WebElement accountTab= driver.findElement(By.xpath("//a[@class='listRelatedObject accountBlock title']"));
 			clickElement(accountTab,"account button");
 			Thread.sleep(2000);

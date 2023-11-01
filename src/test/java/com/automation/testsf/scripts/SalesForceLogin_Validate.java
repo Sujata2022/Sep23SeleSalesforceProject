@@ -15,8 +15,8 @@ public class SalesForceLogin_Validate extends BaseTestSF{
 		setUpBeforeTestMethod("chrome");
 	
 		//invalidLogin_1();
-		validLogin_2();
-		//logoutSuccess_3();
+		//validLogin_2();
+		logoutSuccess_3();
 		//rememberMe_3();		
 		//forgotPassword_4A(); 
 		//invalidLogin_4B();
@@ -65,10 +65,12 @@ public class SalesForceLogin_Validate extends BaseTestSF{
 	public static void logoutSuccess_3() throws InterruptedException{
 		
 		loginPage();
-		WebElement profile = driver.findElement(By.xpath("//*[@id=\"userNav\"]")); 
+		
+	 	WebElement profile = driver.findElement(By.xpath("//*[@id=\"userNav\"]")); 
 		JavascriptExecutor executor1 = (JavascriptExecutor) driver; 
 		executor1.executeScript("arguments[0].click();", profile);
 		Thread.sleep(5000);
+		
 		//waitForVisibility(profile,10,"profile link");	
 		WebElement logoutUser = driver.findElement(By.xpath("//*[@id=\"userNav-menuItems\"]/a[5]"));
 		clickElement(logoutUser,"logout button");
@@ -131,5 +133,4 @@ public class SalesForceLogin_Validate extends BaseTestSF{
 			WebElement buttonEle=driver.findElement(By.id("Login"));
 			clickElement(buttonEle,"login button");			
 		}
-
 }
