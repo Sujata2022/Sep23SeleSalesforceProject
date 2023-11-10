@@ -1,9 +1,10 @@
 package com.automation.testsf.scripts;
 
-import java.time.Duration;
+import java.time.*;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
+import java.time.Duration;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -45,7 +46,7 @@ public class BaseTestSF {
 	//valid login to salesforce
 	public static WebDriver loginPage() {
 		
-		setUpBeforeTestMethod("Chrome");
+		setUpBeforeTestMethod("browser");
 		WebElement usernameEle = driver.findElement(By.id("username"));	
 		enterText(usernameEle,USERNAME,"username textbox");
 		WebElement passwordEle = driver.findElement(By.id("password"));

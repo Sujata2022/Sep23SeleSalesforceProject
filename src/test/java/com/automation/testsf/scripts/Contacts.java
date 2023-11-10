@@ -7,6 +7,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.automation.testsf.utilities.PropertiesUtilitySF;
 
@@ -16,14 +19,38 @@ public class Contacts extends BaseTestSF {
 		
 					setUpBeforeTestMethod("chrome");
 					loginPage();	
-					homeContacts(); //BaseTestSF					
+					homeContacts(); //BaseTestSF
+					
+					//createNewContact_25();
 					//createView_26();
 					//recentContacts_27();
 					//myContacts_28();
 					//viewContacts_29();
 					//checkViewErrorMsg_30();
 					//createViewCancel_31();
-					newContact_32();
+					newContactSaveAndNew_32();	
+	}
+	
+	public static void createNewContact_25() throws InterruptedException {		
+
+		WebElement newContactLink= driver.findElement(By.xpath("//*[@id=\"brandBand_2\"]/div/div/div[3]/div/div/div/div[1]/div/div[2]/div/div/div/button[1]"));
+		clickElement(newContactLink,"new contact link");
+		Thread.sleep(2000);
+		
+		String handle = driver.getWindowHandles().toArray()[0].toString();
+	    driver.switchTo().window(handle);
+	    
+	    driver.findElement(By.xpath("//*[@id=\"input-647\"]")).clear();
+		driver.findElement(By.xpath("//*[@id=\"input-647\"]")).sendKeys("Sony");	//input[@id='combobox-input-754']
+		Thread.sleep(2000);			
+
+		JavascriptExecutor jse = ((JavascriptExecutor)driver);          
+		WebElement acct = driver.findElement(By.xpath("//*[@id=\"combobox-input-753\"]"));
+		jse.executeScript("arguments[0].value='Mike';",acct);
+		
+		Thread.sleep(2000);	
+		driver.findElement(By.xpath("//lightning-button[@variant='brand']//button[@type='button'][contains(text(),'Save')]")).click();
+	
 		}
 	
 		public static void createView_26() throws InterruptedException {		
@@ -87,7 +114,6 @@ public class Contacts extends BaseTestSF {
 		}
 		public static void checkViewErrorMsg_30() throws InterruptedException {		
 			
-			
 			viewSettings();
 		
 			WebElement createNewView= driver.findElement(By.xpath("/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div[2]/div/div/div/div[1]/div/div/ul/li[3]/a"));
@@ -113,7 +139,7 @@ public class Contacts extends BaseTestSF {
 			Thread.sleep(2000);
 			WebElement createNewView= driver.findElement(By.xpath("/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div[3]/div/div/div/div[1]/div/div[2]/div/div/div/div[1]/div/div/ul/li[3]/a"));
 			clickElement(createNewView,"view contacts");
-			Thread.sleep(4000);
+			Thread.sleep(2000);
 					
 		    String handle = driver.getWindowHandles().toArray()[0].toString();
 		    driver.switchTo().window(handle);
@@ -129,24 +155,25 @@ public class Contacts extends BaseTestSF {
 
 		}
 		
-public static void newContact_32() throws InterruptedException {		
-		
-	WebElement newContactLink= driver.findElement(By.xpath("//button[contains(text(),'New')]"));
+public static void newContactSaveAndNew_32() throws InterruptedException {				
+
+	WebElement newContactLink= driver.findElement(By.xpath("//*[@id=\"brandBand_2\"]/div/div/div[3]/div/div/div/div[1]/div/div[2]/div/div/div/button[1]"));
 	clickElement(newContactLink,"new contact link");
 	Thread.sleep(2000);
-
 	
-		   /* String handle = driver.getWindowHandles().toArray()[0].toString();
-		    driver.switchTo().window(handle);
-		    
-		    driver.findElement(By.xpath("//*[@id=\"input-626\"]")).clear();
-			driver.findElement(By.xpath("//*[@id=\"input-626\"]")).sendKeys("ABCD");
-			Thread.sleep(2000);	
-			//driver.findElement(By.id("input-628")).clear();
-			driver.findElement(By.xpath("//*[@id=\"input-628\"]")).sendKeys("EFGH");
-			Thread.sleep(2000);	
-			driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")).click();
-			//driver.findElement(By.name("__CONFIRM__")).click();
-*/
-		}
+	String handle = driver.getWindowHandles().toArray()[0].toString();
+    driver.switchTo().window(handle);
+    
+    driver.findElement(By.xpath("//*[@id=\"input-647\"]")).clear();
+	driver.findElement(By.xpath("//*[@id=\"input-647\"]")).sendKeys("Jack");	//input[@id='combobox-input-754']
+	Thread.sleep(2000);			
+
+	JavascriptExecutor jse = ((JavascriptExecutor)driver);          
+	WebElement acct = driver.findElement(By.xpath("//*[@id=\"combobox-input-753\"]"));
+	jse.executeScript("arguments[0].value='Sony';",acct);
+	
+	Thread.sleep(2000);	
+	driver.findElement(By.xpath("//button[contains(text(),'Save & New')]")).click();
+
 	}
+}
